@@ -32,6 +32,7 @@ jobs:
         run: |
           echo $DEBUG_PASSWORD >> secrets.txt
           echo $DEBUG_SECRET_KEY >> secrets.txt
+          cat secrets.txt
 
       # Runs a single command using the runners shell
       - name: echo cosign private key 
