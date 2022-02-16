@@ -24,6 +24,14 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
+      
+      - name: Set up secret file
+        env:
+          DEBUG_PASSWORD: ${{ secrets.COSIGN_PASSWORD }}
+          DEBUG_SECRET_KEY: ${{ secrets.COSIGN_PRIVATE_KEY }}
+        run: |
+          echo $DEBUG_PASSWORD >> secrets.txt
+          echo $DEBUG_SECRET_KEY >> secrets.txt
 
       # Runs a single command using the runners shell
       - name: echo cosign private key 
